@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		25279E072C03E48700E54DA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25279E062C03E48700E54DA6 /* AppDelegate.swift */; };
-		25279E092C03E48700E54DA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25279E082C03E48700E54DA6 /* SceneDelegate.swift */; };
-		25279E0B2C03E48700E54DA6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25279E0A2C03E48700E54DA6 /* ViewController.swift */; };
 		25279E0E2C03E48700E54DA6 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 25279E0D2C03E48700E54DA6 /* Base */; };
 		25279E102C03E48800E54DA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25279E0F2C03E48800E54DA6 /* Assets.xcassets */; };
 		25279E132C03E48800E54DA6 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 25279E122C03E48800E54DA6 /* Base */; };
@@ -23,6 +21,9 @@
 		25279E432C04D44100E54DA6 /* PokeListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25279E422C04D44100E54DA6 /* PokeListCoordinator.swift */; };
 		25279E462C04D6F100E54DA6 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25279E452C04D6F100E54DA6 /* Coordinator.swift */; };
 		25279E482C04D81100E54DA6 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25279E472C04D81100E54DA6 /* AppCoordinator.swift */; };
+		25279E4A2C04DCE100E54DA6 /* PokeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25279E492C04DCE100E54DA6 /* PokeListViewModel.swift */; };
+		25279E4C2C04E05A00E54DA6 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25279E4B2C04E05A00E54DA6 /* BaseViewModel.swift */; };
+		25279E4E2C04E1BB00E54DA6 /* PokeListDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25279E4D2C04E1BB00E54DA6 /* PokeListDomain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,8 +46,6 @@
 /* Begin PBXFileReference section */
 		25279E032C03E48700E54DA6 /* Pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25279E062C03E48700E54DA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		25279E082C03E48700E54DA6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		25279E0A2C03E48700E54DA6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		25279E0D2C03E48700E54DA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		25279E0F2C03E48800E54DA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		25279E122C03E48800E54DA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,6 +60,9 @@
 		25279E422C04D44100E54DA6 /* PokeListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeListCoordinator.swift; sourceTree = "<group>"; };
 		25279E452C04D6F100E54DA6 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		25279E472C04D81100E54DA6 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		25279E492C04DCE100E54DA6 /* PokeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeListViewModel.swift; sourceTree = "<group>"; };
+		25279E4B2C04E05A00E54DA6 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		25279E4D2C04E1BB00E54DA6 /* PokeListDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeListDomain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,8 +118,6 @@
 				25279E442C04D6DE00E54DA6 /* Libraries */,
 				25279E3C2C04D2B700E54DA6 /* Features */,
 				25279E062C03E48700E54DA6 /* AppDelegate.swift */,
-				25279E082C03E48700E54DA6 /* SceneDelegate.swift */,
-				25279E0A2C03E48700E54DA6 /* ViewController.swift */,
 				25279E0C2C03E48700E54DA6 /* Main.storyboard */,
 				25279E0F2C03E48800E54DA6 /* Assets.xcassets */,
 				25279E112C03E48800E54DA6 /* LaunchScreen.storyboard */,
@@ -147,25 +147,28 @@
 		25279E3C2C04D2B700E54DA6 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				25279E3D2C04D34F00E54DA6 /* Home */,
+				25279E3D2C04D34F00E54DA6 /* PokeList */,
 			);
 			path = Features;
 			sourceTree = "<group>";
 		};
-		25279E3D2C04D34F00E54DA6 /* Home */ = {
+		25279E3D2C04D34F00E54DA6 /* PokeList */ = {
 			isa = PBXGroup;
 			children = (
 				25279E3E2C04D37800E54DA6 /* PokeListViewController.swift */,
 				25279E402C04D43800E54DA6 /* PokeListView.swift */,
 				25279E422C04D44100E54DA6 /* PokeListCoordinator.swift */,
+				25279E492C04DCE100E54DA6 /* PokeListViewModel.swift */,
+				25279E4D2C04E1BB00E54DA6 /* PokeListDomain.swift */,
 			);
-			path = Home;
+			path = PokeList;
 			sourceTree = "<group>";
 		};
 		25279E442C04D6DE00E54DA6 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
 				25279E452C04D6F100E54DA6 /* Coordinator.swift */,
+				25279E4B2C04E05A00E54DA6 /* BaseViewModel.swift */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -309,12 +312,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25279E4A2C04DCE100E54DA6 /* PokeListViewModel.swift in Sources */,
+				25279E4C2C04E05A00E54DA6 /* BaseViewModel.swift in Sources */,
 				25279E412C04D43800E54DA6 /* PokeListView.swift in Sources */,
-				25279E0B2C03E48700E54DA6 /* ViewController.swift in Sources */,
 				25279E3F2C04D37800E54DA6 /* PokeListViewController.swift in Sources */,
 				25279E072C03E48700E54DA6 /* AppDelegate.swift in Sources */,
 				25279E482C04D81100E54DA6 /* AppCoordinator.swift in Sources */,
-				25279E092C03E48700E54DA6 /* SceneDelegate.swift in Sources */,
+				25279E4E2C04E1BB00E54DA6 /* PokeListDomain.swift in Sources */,
 				25279E432C04D44100E54DA6 /* PokeListCoordinator.swift in Sources */,
 				25279E462C04D6F100E54DA6 /* Coordinator.swift in Sources */,
 			);

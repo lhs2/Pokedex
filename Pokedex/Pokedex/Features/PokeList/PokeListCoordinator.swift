@@ -1,5 +1,5 @@
 //
-//  AppCoordinator.swift
+//  PokeListCoordinator.swift
 //  Pokedex
 //
 //  Created by Luiz Henrique on 27/05/2024.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-protocol AppCoordinatorProtocol: Coordinator {
+protocol PokeListCoordinatorProtocol: Coordinator {
     func start()
 }
 
-class AppCoordinator: AppCoordinatorProtocol {
+class PokeListCoordinator: PokeListCoordinatorProtocol {
     var finishDelegate: CoordinatorFinishDelegate?
     var childCoordinators = [Coordinator]()
     var parentCoordinator: Coordinator?
@@ -23,13 +23,12 @@ class AppCoordinator: AppCoordinatorProtocol {
     }
 
     func start() {
-        presentHome()
-    }
-    
-    private func presentHome() {
-        let pokeListCoordinator = PokeListCoordinator(navigationController)
-        pokeListCoordinator.start()
-        childCoordinators.append(pokeListCoordinator)
+        let vc = PokeListViewController()
+        let viewModel = PokeListViewModel(coordinator: self, viewController: vc) 
+        vc.viewModel = viewModel
+        vc.coordinator = self
+        vc.modalPresentationStyle = .fullScreen
+        navigationController.present(vc, animated: true)
     }
     
 }
