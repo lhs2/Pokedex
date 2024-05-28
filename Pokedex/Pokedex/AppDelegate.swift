@@ -16,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let navigationController: UINavigationController = .init()
         navigationController.setNavigationBarHidden(true, animated: false)
-
         window = UIWindow.init(frame: UIScreen.main.bounds)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()

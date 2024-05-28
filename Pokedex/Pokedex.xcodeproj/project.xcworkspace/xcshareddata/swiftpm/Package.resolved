@@ -1,13 +1,22 @@
 {
-  "originHash" : "0fe853811c9bbc2c3cc85ad8b430a9ac60d9b2f13d90e96a1c35a29264950068",
+  "originHash" : "ade28843c7acfe5d5528938cb93249f14a6f1f313d046b082cd55cbcbe9b8855",
   "pins" : [
     {
-      "identity" : "nuke",
+      "identity" : "alamofire",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/kean/Nuke.git",
+      "location" : "https://github.com/Alamofire/Alamofire.git",
       "state" : {
-        "revision" : "7395c7a9dcd390bbcfad17a731d8d529602702c6",
-        "version" : "12.7.0"
+        "revision" : "f455c2975872ccd2d9c81594c658af65716e9b9a",
+        "version" : "5.9.1"
+      }
+    },
+    {
+      "identity" : "alamofireimage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Alamofire/AlamofireImage.git",
+      "state" : {
+        "revision" : "1eaf3b6c6882bed10f6e7b119665599dd2329aa1",
+        "version" : "4.3.0"
       }
     },
     {
