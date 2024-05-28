@@ -25,6 +25,7 @@
 		25279E4E2C04E1BB00E54DA6 /* PokeListDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25279E4D2C04E1BB00E54DA6 /* PokeListDomain.swift */; };
 		25279E512C0542EC00E54DA6 /* PokeListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25279E502C0542EC00E54DA6 /* PokeListTableViewCell.swift */; };
 		25279E542C05661100E54DA6 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 25279E532C05661100E54DA6 /* AlamofireImage */; };
+		25279E5A2C057CA300E54DA6 /* PokeFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25279E592C057CA300E54DA6 /* PokeFont.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		25279E4B2C04E05A00E54DA6 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		25279E4D2C04E1BB00E54DA6 /* PokeListDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeListDomain.swift; sourceTree = "<group>"; };
 		25279E502C0542EC00E54DA6 /* PokeListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeListTableViewCell.swift; sourceTree = "<group>"; };
+		25279E592C057CA300E54DA6 /* PokeFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PokeFont.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 		25279E052C03E48700E54DA6 /* Pokedex */ = {
 			isa = PBXGroup;
 			children = (
+				25279E582C057C7D00E54DA6 /* fonts */,
 				25279E442C04D6DE00E54DA6 /* Libraries */,
 				25279E3C2C04D2B700E54DA6 /* Features */,
 				25279E062C03E48700E54DA6 /* AppDelegate.swift */,
@@ -182,6 +185,14 @@
 				25279E502C0542EC00E54DA6 /* PokeListTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		25279E582C057C7D00E54DA6 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				25279E592C057CA300E54DA6 /* PokeFont.ttf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,6 +307,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25279E5A2C057CA300E54DA6 /* PokeFont.ttf in Resources */,
 				25279E102C03E48800E54DA6 /* Assets.xcassets in Resources */,
 				25279E132C03E48800E54DA6 /* Base in Resources */,
 				25279E0E2C03E48700E54DA6 /* Base in Resources */,
