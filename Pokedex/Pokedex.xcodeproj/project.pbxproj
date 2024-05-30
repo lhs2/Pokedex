@@ -36,6 +36,7 @@
 		25279E732C08240E00E54DA6 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25279E722C08240E00E54DA6 /* Pagination.swift */; };
 		25279E752C082C9200E54DA6 /* PokeListViewUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25279E742C082C9200E54DA6 /* PokeListViewUI.swift */; };
 		25279E772C082D8600E54DA6 /* PokeListListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25279E762C082D8600E54DA6 /* PokeListListCell.swift */; };
+		25279E792C08F24F00E54DA6 /* PokeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25279E782C08F24F00E54DA6 /* PokeDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		25279E722C08240E00E54DA6 /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
 		25279E742C082C9200E54DA6 /* PokeListViewUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeListViewUI.swift; sourceTree = "<group>"; };
 		25279E762C082D8600E54DA6 /* PokeListListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeListListCell.swift; sourceTree = "<group>"; };
+		25279E782C08F24F00E54DA6 /* PokeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 		25279E3C2C04D2B700E54DA6 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				25279E7A2C08F25C00E54DA6 /* PokeDetails */,
 				25279E3D2C04D34F00E54DA6 /* PokeList */,
 			);
 			path = Features;
@@ -239,6 +242,14 @@
 				25279E722C08240E00E54DA6 /* Pagination.swift */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		25279E7A2C08F25C00E54DA6 /* PokeDetails */ = {
+			isa = PBXGroup;
+			children = (
+				25279E782C08F24F00E54DA6 /* PokeDetailsView.swift */,
+			);
+			path = PokeDetails;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -395,6 +406,7 @@
 				25279E6E2C07A07600E54DA6 /* PokeListWorker.swift in Sources */,
 				25279E632C05848100E54DA6 /* URLSessionNetworkProvider.swift in Sources */,
 				25279E5D2C0580EF00E54DA6 /* NetworkProvider.swift in Sources */,
+				25279E792C08F24F00E54DA6 /* PokeDetailsView.swift in Sources */,
 				25279E4E2C04E1BB00E54DA6 /* PokeListDomain.swift in Sources */,
 				25279E432C04D44100E54DA6 /* PokeListCoordinator.swift in Sources */,
 				25279E612C0583AF00E54DA6 /* NetworkError.swift in Sources */,

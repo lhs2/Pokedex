@@ -11,6 +11,7 @@ import Swinject
 protocol PokeListWorkerProtocol {
     func requestList(offset: Int, limit: Int) -> [PKMPokemonList]
     func requestPokemonBy(input: String) -> PKMPokemon?
+    func requestPokemonDetailsBy(url: String) -> PKMPokemon?
 }
 
 final class PokeListWorker: PokeListWorkerProtocol {
@@ -36,8 +37,22 @@ final class PokeListWorker: PokeListWorkerProtocol {
         }
     }
     
+    func requestPokemonDetailsBy(url: String) -> PKMPokemon? {
+        let request = createRequestPokemonDetails(url: url)
+        guard let provider = getNetworkProvider() else {
+            return nil
+        }
+        let result: Result<PKMPokemon, NetworkProviderError> = provider.request(request)
+        switch result {
+        case .success(let pokemon):
+            return pokemon
+        case .failure:
+            return nil
+        }
+    }
+    
     func requestPokemonBy(input: String) -> PKMPokemon? {
-        let request = createRequestPokemon(input: input)
+        let request = createRequestPokemonDetails(url: input)
         guard let provider = getNetworkProvider() else {
             return nil
         }
@@ -64,6 +79,11 @@ final class PokeListWorker: PokeListWorkerProtocol {
     
     func createRequestPokemon(input: String) -> PokeListWorkerRequest<NetworkProviderRequestBodyEmpty> {
         let absoluteURL = baseURL + "pokemon/\(input)"
+        return PokeListWorkerRequest(serviceName: "Pokemon", serviceUrl: absoluteURL, method: .get, headers: nil, queryParams: nil)
+    }
+    
+    func createRequestPokemonDetails(url: String) -> PokeListWorkerRequest<NetworkProviderRequestBodyEmpty> {
+        let absoluteURL = url
         return PokeListWorkerRequest(serviceName: "Pokemon", serviceUrl: absoluteURL, method: .get, headers: nil, queryParams: nil)
     }
 }

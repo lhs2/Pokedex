@@ -32,13 +32,12 @@ class PKMPokemon: Codable {
     
     var id: Int?
     var name: String?
-    var baseExperience: Int?
+    var base_experience: Int?
     var height: Int?
     var isDefault: Bool?
     var order: Int?
     var weight: Int?
     var abilities: [PKMPokemonAbility]?
-    var locationAreaEncounters: String?
     var sprites: PKMPokemonSprites?
     var stats: [PKMPokemonStat]?
     var types: [PKMPokemonType]?
@@ -56,7 +55,7 @@ class PKMPokemonAbility: Codable {
     
     var isHidden: Bool?
     var slot: Int?
-    var ability: [PKMAbility]?
+    var ability: PKMAbility?
     
     public static var decoder: JSONDecoder = {
         let decoder = JSONDecoder()
@@ -80,7 +79,7 @@ class PKMAbility: Codable {
 /// Pokemon Type
 class PKMPokemonType: Codable {
     var slot: Int?
-    var type: [PKMType]?
+    var type: PKMType?
 }
 
 /// Pokemon Stat
@@ -106,6 +105,10 @@ class PKMPokemonSprites: Codable {
     var backShiny: String?
     var backFemale: String?
     var backShinyFemale: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case frontDefault = "front_default"
+    }
     
     public static var decoder: JSONDecoder = {
         let decoder = JSONDecoder()

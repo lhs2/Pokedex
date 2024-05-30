@@ -21,12 +21,7 @@ struct PokeListListCell: View {
             .padding(.trailing, 20)
             Text(getPokemonName())
                 .font(getFont())
-            NavigationLink(destination: Text(getPokemonName())) {
-                                    EmptyView()
-                                }
-                        .buttonStyle(PlainButtonStyle())
         }
-        
     }
     
     func getImagePath() -> String {

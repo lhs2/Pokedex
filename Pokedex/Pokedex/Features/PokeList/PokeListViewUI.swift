@@ -15,7 +15,9 @@ struct PokeListViewUI: View {
         NavigationView {
             List {
                 ForEach(viewModel.getPokemonList(with: searchInput)) { pokemon in
-                    PokeListListCell(pokemonInfo: pokemon)
+                    NavigationLink (destination: PokeDetailsView(pokemonInfo: viewModel.getPokemonDetail(input: pokemon.url))) {
+                        PokeListListCell(pokemonInfo: pokemon)
+                    }
                 }
             }
             .searchable(text: $searchInput)

@@ -43,6 +43,24 @@ final class PokeListViewModel: PokeListViewModelProtocol, ObservableObject, Iden
         present(.requestList)
     }
     
+    func getPokemonDetail(input: String?)-> PKMPokemon {
+        let missigno = PKMPokemon()
+        missigno.name = "MISSINGNO"
+        
+        guard let input = input else {
+            return missigno
+        }
+        
+        let pokeInfo = worker?.requestPokemonBy(input: input)
+        
+        guard let pokeInfo = pokeInfo else {
+            return missigno
+        }
+        
+        return pokeInfo
+    }
+
+    
     private func requestPokemonBy(pokedexId: Int) {
         print("Present Pokemon Details \(pokedexId)")
     }
@@ -51,6 +69,6 @@ final class PokeListViewModel: PokeListViewModelProtocol, ObservableObject, Iden
         if searchInput == "" {
             return pokemonList
         }
-        return pokemonList.filter { $0.name?.contains(searchInput.uppercased()) ?? false }
+        return pokemonList.filter {  $0.name?.uppercased().contains(searchInput.uppercased()) ?? false }
     }
 }
