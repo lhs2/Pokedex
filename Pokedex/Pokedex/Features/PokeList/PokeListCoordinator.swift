@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Swinject
 
 protocol PokeListCoordinatorProtocol: Coordinator {
     func start()
@@ -17,6 +18,7 @@ class PokeListCoordinator: PokeListCoordinatorProtocol {
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
     var navigationController: UINavigationController
+    var resolver: Resolver?
     
     required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -24,7 +26,10 @@ class PokeListCoordinator: PokeListCoordinatorProtocol {
 
     func start() {
         let vc = PokeListViewController()
-        let viewModel = PokeListViewModel(coordinator: self, viewController: vc) 
+        let viewModel = PokeListViewModel(coordinator: self, viewController: vc)
+        viewModel.worker = PokeListWorker(resolver: resolver)
+        let view = PokeListViewUI(viewModel: viewModel)
+        vc.pokeListView = view
         vc.viewModel = viewModel
         vc.coordinator = self
         vc.modalPresentationStyle = .fullScreen

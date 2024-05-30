@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import Swinject
 
 protocol Coordinator: AnyObject {
+    var resolver: Resolver? { get set }
     var finishDelegate: CoordinatorFinishDelegate? {get set}
     var navigationController: UINavigationController {get set}
     var childCoordinators: [Coordinator] {get set}

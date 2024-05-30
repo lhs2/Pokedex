@@ -6,20 +6,27 @@
 //
 
 import UIKit
+import SwiftUI
 
 final class PokeListViewController: UIViewController {
-    var viewModel: PokeListViewModelProtocol?
+    var viewModel: PokeListViewModel?
     var coordinator: PokeListCoordinatorProtocol?
     
-    var pokeListView = PokeListView()
+    var pokeListView: PokeListViewUI?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
-    
+        
     private func setupUI() {
-        view = pokeListView
+        if let pokeListView = pokeListView {
+            let childView = UIHostingController(rootView: pokeListView)
+            addChild(childView)
+            childView.view.frame = view.bounds
+            view.addSubview(childView.view)
+            childView.didMove(toParent: self)
+        }
+        viewModel?.send(.requestList)
     }
-    
 }

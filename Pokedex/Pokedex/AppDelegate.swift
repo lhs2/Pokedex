@@ -11,6 +11,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var appCoordinator: AppCoordinator?
+    var appDependencies = AppDependencies()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
@@ -20,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         appCoordinator = AppCoordinator.init(navigationController)
+        appCoordinator?.resolver = appDependencies.resolver
         appCoordinator?.start()
         return true
     }

@@ -6,32 +6,32 @@
 //
 
 import UIKit
+import Swinject
 
 protocol AppCoordinatorProtocol: Coordinator {
     func start()
 }
 
 class AppCoordinator: AppCoordinatorProtocol {
+    
     var finishDelegate: CoordinatorFinishDelegate?
     var childCoordinators = [Coordinator]()
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
     var navigationController: UINavigationController
+    var resolver: Resolver?
     
     required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
 
     func start() {
-        for family in UIFont.familyNames.sorted() {
-            let names = UIFont.fontNames(forFamilyName: family)
-            print("Family: \(family) Font names: \(names)")
-        }
         presentHome()
     }
     
     private func presentHome() {
         let pokeListCoordinator = PokeListCoordinator(navigationController)
+        pokeListCoordinator.resolver = resolver
         pokeListCoordinator.start()
         childCoordinators.append(pokeListCoordinator)
     }

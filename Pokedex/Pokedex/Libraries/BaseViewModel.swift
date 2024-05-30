@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit.UIViewController
+import Swinject
 
 protocol ViewModelProtocol {
     associatedtype Action: Equatable
@@ -19,6 +20,7 @@ protocol ViewModelProtocol {
 class BaseViewModel<Action: Equatable>: ViewModelProtocol {
     weak var coordinator: Coordinator?
     weak var viewController: UIViewController?
+    var resolver: Resolver?
     
     init(coordinator: Coordinator? = nil, viewController: UIViewController? = nil) {
         self.coordinator = coordinator
