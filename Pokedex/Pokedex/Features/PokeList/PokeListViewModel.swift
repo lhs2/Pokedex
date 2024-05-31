@@ -5,11 +5,15 @@
 //  Created by Luiz Henrique on 27/05/2024.
 //
 
-import Foundation
+import SwiftUI
 
 final class PokeListViewModel: PokeListViewModelProtocol, ObservableObject, Identifiable {
     var worker: PokeListWorkerProtocol?
-    var pokemonList: [Pokemon] = []
+    @Published var pokemonList: [Pokemon] = []
+    var isMoreDataAvailable: Bool = false
+    @State var paginationState: PaginationState = .idle
+    var limit = 151
+    var offset = 0
     
     override func send(_ identifier: PokeListViewModelActionIdentifier) {
         switch identifier {
@@ -25,13 +29,15 @@ final class PokeListViewModel: PokeListViewModelProtocol, ObservableObject, Iden
         case .goToDetailsBy(let pokedexId):
             requestPokemonBy(pokedexId: pokedexId)
         case .requestList:
-            print(1)
-            
+            paginationState = .idle
+            isMoreDataAvailable = true
         }
     }
     
-    private func requestList() {
-        let newList = worker?.requestList(offset: 0, limit: 30) ?? []
+    func requestList() {
+        paginationState = .isLoading
+        isMoreDataAvailable = false
+        let newList = worker?.requestList(offset: offset, limit: limit) ?? []
         let parsedList = newList.compactMap({ item in
             let parsedItem = Pokemon(name: item.name, imagePath: nil, url: item.url)
             if let pokeID = item.url?.components(separatedBy: "/").dropLast().last {
@@ -40,6 +46,7 @@ final class PokeListViewModel: PokeListViewModelProtocol, ObservableObject, Iden
             return parsedItem
         })
         pokemonList.append(contentsOf: parsedList)
+        offset = pokemonList.count
         present(.requestList)
     }
     

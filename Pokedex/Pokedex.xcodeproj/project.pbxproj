@@ -37,6 +37,9 @@
 		25279E752C082C9200E54DA6 /* PokeListViewUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25279E742C082C9200E54DA6 /* PokeListViewUI.swift */; };
 		25279E772C082D8600E54DA6 /* PokeListListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25279E762C082D8600E54DA6 /* PokeListListCell.swift */; };
 		25279E792C08F24F00E54DA6 /* PokeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25279E782C08F24F00E54DA6 /* PokeDetailsView.swift */; };
+		25279E7D2C096EC200E54DA6 /* PokeDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25279E7C2C096EC200E54DA6 /* PokeDetailsViewModel.swift */; };
+		25279E7F2C096F2D00E54DA6 /* PokeDetailsDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25279E7E2C096F2D00E54DA6 /* PokeDetailsDomain.swift */; };
+		25279E812C09713000E54DA6 /* PokeDetailsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25279E802C09713000E54DA6 /* PokeDetailsWorker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +92,10 @@
 		25279E742C082C9200E54DA6 /* PokeListViewUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeListViewUI.swift; sourceTree = "<group>"; };
 		25279E762C082D8600E54DA6 /* PokeListListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeListListCell.swift; sourceTree = "<group>"; };
 		25279E782C08F24F00E54DA6 /* PokeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeDetailsView.swift; sourceTree = "<group>"; };
+		25279E7B2C096E2600E54DA6 /* Pokedex.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Pokedex.xctestplan; sourceTree = "<group>"; };
+		25279E7C2C096EC200E54DA6 /* PokeDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeDetailsViewModel.swift; sourceTree = "<group>"; };
+		25279E7E2C096F2D00E54DA6 /* PokeDetailsDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeDetailsDomain.swift; sourceTree = "<group>"; };
+		25279E802C09713000E54DA6 /* PokeDetailsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeDetailsWorker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +128,7 @@
 		25279DFA2C03E48700E54DA6 = {
 			isa = PBXGroup;
 			children = (
+				25279E7B2C096E2600E54DA6 /* Pokedex.xctestplan */,
 				25279E052C03E48700E54DA6 /* Pokedex */,
 				25279E1C2C03E48900E54DA6 /* PokedexTests */,
 				25279E262C03E48900E54DA6 /* PokedexUITests */,
@@ -248,6 +256,9 @@
 			isa = PBXGroup;
 			children = (
 				25279E782C08F24F00E54DA6 /* PokeDetailsView.swift */,
+				25279E7C2C096EC200E54DA6 /* PokeDetailsViewModel.swift */,
+				25279E7E2C096F2D00E54DA6 /* PokeDetailsDomain.swift */,
+				25279E802C09713000E54DA6 /* PokeDetailsWorker.swift */,
 			);
 			path = PokeDetails;
 			sourceTree = "<group>";
@@ -399,7 +410,9 @@
 				25279E652C058D1500E54DA6 /* AppDependencies.swift in Sources */,
 				25279E752C082C9200E54DA6 /* PokeListViewUI.swift in Sources */,
 				25279E712C07A61700E54DA6 /* Pokemon.swift in Sources */,
+				25279E7F2C096F2D00E54DA6 /* PokeDetailsDomain.swift in Sources */,
 				25279E672C058E0400E54DA6 /* BaseNetworkProvider.swift in Sources */,
+				25279E812C09713000E54DA6 /* PokeDetailsWorker.swift in Sources */,
 				25279E3F2C04D37800E54DA6 /* PokeListViewController.swift in Sources */,
 				25279E072C03E48700E54DA6 /* AppDelegate.swift in Sources */,
 				25279E482C04D81100E54DA6 /* AppCoordinator.swift in Sources */,
@@ -408,6 +421,7 @@
 				25279E5D2C0580EF00E54DA6 /* NetworkProvider.swift in Sources */,
 				25279E792C08F24F00E54DA6 /* PokeDetailsView.swift in Sources */,
 				25279E4E2C04E1BB00E54DA6 /* PokeListDomain.swift in Sources */,
+				25279E7D2C096EC200E54DA6 /* PokeDetailsViewModel.swift in Sources */,
 				25279E432C04D44100E54DA6 /* PokeListCoordinator.swift in Sources */,
 				25279E612C0583AF00E54DA6 /* NetworkError.swift in Sources */,
 				25279E732C08240E00E54DA6 /* Pagination.swift in Sources */,

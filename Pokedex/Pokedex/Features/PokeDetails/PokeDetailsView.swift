@@ -6,9 +6,17 @@
 //
 
 import SwiftUI
+import Swinject
 
 struct PokeDetailsView: View {
+    init(pokemonInfo: PKMPokemon, resolver: Resolver?) {
+        self.pokemonInfo = pokemonInfo
+        viewModel.resolver = resolver
+        viewModel.worker = PokeDetailsWorker(resolver: resolver)
+    }
     var pokemonInfo: PKMPokemon
+    var viewModel: PokeDetailsViewModel = PokeDetailsViewModel()
+    var resolver: Resolver?
     
     var body: some View {
         AsyncImage(url: URL(string: getPokemonImage())){ image in
@@ -33,6 +41,9 @@ struct PokeDetailsView: View {
                 LabeledContent("Width", value: getPokemonWeight())
                 LabeledContent("Base Experience", value: getPokemonBaseExperience())
                 LabeledContent("Abilities", value: getPokemonAbilities())
+                Button("Favorite this pokemon", action: {
+                    viewModel.postFavoritePokemon(pokemon: pokemonInfo)
+                })
             }
         }
     }
@@ -78,5 +89,5 @@ struct PokeDetailsView: View {
 }
 
 #Preview {
-    PokeDetailsView(pokemonInfo: PKMPokemon())
+    PokeDetailsView(pokemonInfo: PKMPokemon(), resolver: Container() )
 }

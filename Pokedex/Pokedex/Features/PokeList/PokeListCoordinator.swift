@@ -28,7 +28,7 @@ class PokeListCoordinator: PokeListCoordinatorProtocol {
         let vc = PokeListViewController()
         let viewModel = PokeListViewModel(coordinator: self, viewController: vc)
         viewModel.worker = PokeListWorker(resolver: resolver)
-        let view = PokeListViewUI(viewModel: viewModel)
+        let view = PokeListViewUI(viewModel: viewModel, resolver: resolver)
         vc.pokeListView = view
         vc.viewModel = viewModel
         vc.coordinator = self

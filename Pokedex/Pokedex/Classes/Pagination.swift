@@ -11,3 +11,8 @@ struct Pagination< T:Codable >: Codable {
     var count: Int?
     var results: [T]?
 }
+
+enum PaginationState {
+    case isLoading
+    case idle
+}
