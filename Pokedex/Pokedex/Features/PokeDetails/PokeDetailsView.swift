@@ -19,15 +19,18 @@ struct PokeDetailsView: View {
     var resolver: Resolver?
     
     var body: some View {
-        AsyncImage(url: URL(string: getPokemonImage())){ image in
-            image.resizable()
-        } placeholder: {
-            ProgressView()
+        LazyVStack {
+            Text(getPokemonName()).font(getFont())
+            AsyncImage(url: URL(string: getPokemonImage())){ image in
+                image.resizable()
+            } placeholder: {
+                ProgressView()
+            }
+            .frame(width: 150, height: 150)
         }
-        .frame(width: 150, height: 150)
         Form {
-            Section(header: Text(getPokemonName())) {
-                LabeledContent("Pokémon ID", value: getPokedexID())
+            Section(header: Text("Pokémon Information")) {
+                LabeledContent("Pokémon ID", value: getPokedexID()).font(getFont())
                 LabeledContent("Type(s)") {
                     HStack {
                         ForEach(getPokemonTypes(), id: \.self) { types in
@@ -36,14 +39,14 @@ struct PokeDetailsView: View {
                                 .frame(width: 80, height: 40)
                         }
                     }
-                }
-                LabeledContent("Height", value: getPokemonHeight())
-                LabeledContent("Width", value: getPokemonWeight())
-                LabeledContent("Base Experience", value: getPokemonBaseExperience())
-                LabeledContent("Abilities", value: getPokemonAbilities())
+                }.font(getFont())
+                LabeledContent("Height", value: getPokemonHeight()).font(getFont())
+                LabeledContent("Width", value: getPokemonWeight()).font(getFont())
+                LabeledContent("Base Experience", value: getPokemonBaseExperience()).font(getFont())
+                LabeledContent("Abilities", value: getPokemonAbilities()).font(getFont())
                 Button("Favorite this pokemon", action: {
                     viewModel.postFavoritePokemon(pokemon: pokemonInfo)
-                })
+                }).font(getFont())
             }
         }
     }
@@ -53,7 +56,7 @@ struct PokeDetailsView: View {
     }
     
     private func getPokemonName() -> String {
-        return pokemonInfo.name ?? "????????"
+        return pokemonInfo.name?.uppercased() ?? "????????"
     }
     
     private func getPokedexID() -> String {
@@ -61,11 +64,19 @@ struct PokeDetailsView: View {
     }
     
     private func getPokemonHeight() -> String {
-        return "\(pokemonInfo.height ?? 0) dm"
+        if var height = pokemonInfo.height {
+            height *= 10
+            return "\(height) cm"
+        }
+        return "NO INFO"
     }
     
     private func getPokemonWeight() -> String {
-        return "\(pokemonInfo.weight ?? 0) hg"
+        if var weight = pokemonInfo.weight {
+            weight *= 100
+            return "\(weight) g"
+        }
+        return "NO INFO"
     }
     
     private func getPokemonBaseExperience() -> String {
@@ -85,6 +96,13 @@ struct PokeDetailsView: View {
             return []
         }
         return typesArray.compactMap{ $0.type?.name }
+    }
+    
+    func getFont() -> Font {
+        guard let pokeFont = UIFont(name: "Pokmon-DS-Font", size: 30) else {
+            return .title
+        }
+        return Font(pokeFont)
     }
 }
 
