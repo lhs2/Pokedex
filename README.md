@@ -38,7 +38,7 @@ You can configure the Webook path by just follwing this two steps:
 
     Status code 200
     Content type text/json
-    Content "
+    Content ""
 
 With this, the code already implemented will have a success response.
 
